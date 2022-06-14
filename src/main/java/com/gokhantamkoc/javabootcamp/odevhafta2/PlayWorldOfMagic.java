@@ -1,8 +1,12 @@
 package com.gokhantamkoc.javabootcamp.odevhafta2;
 
+import java.util.Arrays;
+import java.util.Collections;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
 
 @SpringBootApplication
 public class PlayWorldOfMagic implements CommandLineRunner {
@@ -43,7 +47,18 @@ public class PlayWorldOfMagic implements CommandLineRunner {
 		
 		int spellsUsed = 0;
 		// ______ BASLANGIC _______ Kodunuz buradan baslamali
+				
+		//Finding max damage at array
+		Arrays.sort(spellDamageInfo);
+		float maxDamage = spellDamageInfo[spellDamageInfo.length-1];
 		
+		for(int i=0; i<bossHPs.length;i++) {
+			while(bossHPs[i]>0.0) {				
+				bossHPs[i]=bossHPs[i]-maxDamage;
+				//System.out.println("bosshp:"+bossHPs[i]);
+				spellsUsed++;
+			}
+		}	
 		// ______ SON _______ Kodunuz burada bitmeli
 		/* NOT: ______ BASLANGIC _______ ve ______ SON _______ 
 		 * arasina istediginiz kadar sayida satir ekleyebilirsiniz.
